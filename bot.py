@@ -23,10 +23,9 @@ async def hello(ctx):
 @bot.event
 async def on_message(message):
     if 'https://x.com/' in message.content:
-        await message.delete()
         new_url = message.content.replace('https://x.com/', 'https://fxtwitter.com/')
-        await message.channel.send(new_url)
-    elif 'https://www.tiktok.com/' in message.content:
+        await message.channel.send(new_url)  # Send the modified link
+    elif 'https://vm.tiktok.com/' in message.content:
         url = message.content
 
         # Ensure the 'downloads' directory exists
@@ -35,12 +34,8 @@ async def on_message(message):
 
         # Options for yt-dlp
         ydl_opts = {
-            'format': 'bestvideo[ext=mp4]',  # Get the best quality video format
+            'format': 'best',  # Automatically select the best available format
             'outtmpl': 'downloads/%(title)s.%(ext)s',  # Save the video in a folder named 'downloads'
-            'postprocessors': [{
-                'key': 'FFmpegVideoConvertor',
-                'preferredformat': 'mp4',
-            }],
             'quiet': False
         }
 
