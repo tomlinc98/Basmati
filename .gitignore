@@ -20,3 +20,6 @@ node_modules/
 *.iml
 *.ipr
 *.iws
+
+# config files
+config.json
