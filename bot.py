@@ -3,6 +3,7 @@ import yt_dlp
 import discord
 from dotenv import load_dotenv
 from discord.ext import commands
+from discord import Activity, ActivityType, Status
 
 # Load the token from .env file
 load_dotenv()
@@ -14,6 +15,10 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
+
+    # Set the bot's status to display the current date and time
+    await bot.change_presence(activity=Activity(type=ActivityType.watching, name=f"you"), status=Status.online)
+    print(f'{bot.user.name} is ready!')
 
 @bot.event
 async def on_message(message):
