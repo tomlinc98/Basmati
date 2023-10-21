@@ -2,21 +2,18 @@ import os
 import yt_dlp
 import discord
 from dotenv import load_dotenv
+from discord.ext import commands
 
 # Load the token from .env file
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
 
-intents = Intents.all()  # Declare the intents you're using
+intents = discord.Intents.all()  # Declare the intents you're using
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
-
-@bot.command()
-async def hello(ctx):
-    await ctx.send("Hello!")
 
 @bot.event
 async def on_message(message):
@@ -26,7 +23,7 @@ async def on_message(message):
             return  # The link is already embedded, so we don't need to do anything
 
         new_url = message.content.replace('https://x.com/', 'https://fxtwitter.com/').replace('https://twitter.com/', 'https://fxtwitter.com/')
-        await message.channel.send(f"{message.author.mention}, here's the modified link: {new_url}")  # Send the modified link to the user
+        await message.reply(f"Here's the fixed embed: {new_url}")  # Reply to the user with the modified link
     elif 'https://vm.tiktok.com/' in message.content:
         url = message.content
 
