@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="fixing bugs and making improvements"), status=discord.Status.online)
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="💀"), status=discord.Status.online)
     print(f'{bot.user.name} is ready!')
 
 extensions = ['cogs.twitter', 'cogs.tiktok', 'cogs.about']

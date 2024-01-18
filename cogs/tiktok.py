@@ -8,6 +8,8 @@ import io
 import asyncio
 import requests
 import aiohttp
+import time
+
 
 class TikTok(commands.Cog):
     def __init__(self, bot):
@@ -40,6 +42,12 @@ class TikTok(commands.Cog):
             raise Exception('FFmpeg conversion failed')
 
     async def process_tiktok_link(self, channel, link):
+        ydl_opts = {
+            'format': 'bestvideo+bestaudio/best',
+            'quiet': True,
+            'outtmpl': f'{self.download_path}/video_{int(time.time())}.%(ext)s',  # Append a timestamp to the filename
+        }
+        
         processing_message = await channel.send("Processing TikTok video...")
 
         try:
