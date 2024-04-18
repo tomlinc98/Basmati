@@ -9,11 +9,11 @@ Basmati is a Discord.py bot with niche utilities designed to enhance your Discor
 - **TikTok Video Downloads:** Basmati simplifies the process of sharing TikTok videos with your friends. Simply paste a TikTok video link into the chat, and Basmati will download and upload the video, allowing for easy viewing directly within Discord.
 
 ## Todo
-- **Fix Bugs:** There may be some bugs to address in the future, although specifics are not yet determined.
+- **Fix Bugs:**
 
-- **Music Bot Functionality:** Consider adding music bot functionality to enhance the entertainment options within your Discord server.
+- **Music Bot Functionality:** 
 
-- **Bot Hosting:** Plan to host Basmati somewhere to ensure its availability and reliability.
+- **Bot Hosting:**
 
 ## Dependencies
 Basmati relies on various dependencies and libraries to function properly. Here's a list of some key dependencies:
